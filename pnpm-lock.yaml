@@ -1,0 +1,17 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .: {}
+
+  apps/react-master:
+    dependencies:
+      '@yaqiao/lib':
+        specifier: workspace:*
+        version: link:../../packages/lib
+
+  packages/lib: {}

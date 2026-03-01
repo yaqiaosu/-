@@ -1,0 +1,23 @@
+# Dependencies
+node_modules
+.pnpm
+.pnpm-store
+
+# Build output
+dist
+*.local
+
+# IDE / OS
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.DS_Store
+*.log
+*.lock
+
+# Env
+.env
+.env.*
+!.env.example
+/node_modules
