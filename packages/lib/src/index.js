@@ -1,2 +1,1 @@
-console.log("hello lib");
-console.log("hhhhh");
+console.log('dsdsd');
