@@ -11,6 +11,6 @@
   "license": "ISC",
   "packageMana ger": "pnpm@10.12.4",
   "dependencies": {
-    "@yaqiao/lib": "workspace:*"
+    "lib:workspace:*": "link:@yaqiao/lib:workspace:*"
   }
 }
