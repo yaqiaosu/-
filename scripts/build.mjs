@@ -5,16 +5,9 @@ import { workspace } from './workspace.mjs';
 // !找到构建的任务
 const getBuildTask = () => {
   const totalBuildTask = workspace.targetDirs;
-  const _task = totalBuildTask.filter((task) => {
-    //!process.argv  获取命令行中相关参数
-    console.log(process.argv, 'process.argv');
-    console.log(process.argv.map((item) => item.toLowerCase()).includes(task.name.toLowerCase()), '~~');
-
-    return process.argv.includes(task.name);
-  });
-  console.log(_task, 'task----');
-
-  return _task;
+  const argv = process.argv.slice(2).map((s) => s.toLowerCase());
+  if (argv.length === 0) return totalBuildTask;
+  return totalBuildTask.filter((task) => argv.some((arg) => arg.includes(task.name.toLowerCase())));
 };
 // !pkgLocation 需要在对应的路径下 执行对应的脚本
 const runScript = (scriptName, pkgLocation, args = '') => {

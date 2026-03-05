@@ -2,7 +2,7 @@ import { spawn } from 'child_process';
 import { readFileSync } from 'fs';
 import k from 'kleur';
 import { workspace } from './workspace.mjs';
-const { targetDirs } = workspace;
+const { targetDirs, appDirs } = workspace;
 
 // !是否找到对应的脚本
 let flag = false;
@@ -26,4 +26,17 @@ for (let i = 0; i < targetDirs.length; i++) {
     console.log(k.blue(`[${targetDirs[i].name}]${k.bold().green('正在启动中...')}`));
     runScript('start', targetDirs[i].location);
   }
+}
+
+for (let i = 0; i < appDirs.length; i++) {
+  if (process.argv.some((arg) => arg.toLowerCase().includes(appDirs[i].name.toLowerCase()))) {
+    flag = true;
+    console.log(k.blue(`[${appDirs[i].name}]${k.bold().green('正在启动中...')}`));
+    runScript('start', appDirs[i].location);
+  }
+}
+
+if (!flag) {
+  const options = [...appDirs.map((d) => d.name), ...targetDirs.map((d) => d.name)].join(', ');
+  console.log(k.bold().red(`启动失败：未匹配到目标。可选：${options}`));
 }

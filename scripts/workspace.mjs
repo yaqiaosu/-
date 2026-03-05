@@ -12,11 +12,18 @@ const packagesDir = resolve(__dirname, '../packages');
 const appsDir = resolve(__dirname, '../apps');
 // console.log(appsDir);
 
-const publishPackages = fse.readdirSync(packagesDir);
-const publishApps = fse.readdirSync(appsDir);
+const readSubDirs = (rootDir) => {
+  return fse
+    .readdirSync(rootDir, { withFileTypes: true })
+    .filter((ent) => ent.isDirectory() && !ent.name.startsWith('.'))
+    .map((ent) => ent.name);
+};
+
+const publishPackages = readSubDirs(packagesDir);
+const publishApps = readSubDirs(appsDir);
+
 const packageDir = publishPackages.map((item) => resolve(packagesDir, item));
 const appDir = publishApps.map((item) => resolve(appsDir, item));
-// console.log(appDir);
 // const appsResult = appDir.map((path) => {
 //   // console.log(path, 'hhh');
 //   // console.log(appsDir, 'appDir');
@@ -25,15 +32,23 @@ const appDir = publishApps.map((item) => resolve(appsDir, item));
 //     name: '',
 //   };
 // });
-console.log(publishPackages, 'publishPackages');
 const pkgDirs = publishPackages.map((path, idx) => {
   // console.log(path, 'packageResult');
-  console.log(path, idx);
   return {
     location: packageDir[idx],
     name: path,
   };
 });
+
+const appDirs = publishApps.map((path, idx) => {
+  return {
+    location: appDir[idx],
+    name: path,
+  };
+});
 export const workspace = {
+  // packages
   targetDirs: pkgDirs,
+  // apps
+  appDirs,
 };
