@@ -1,5 +1,7 @@
 import React from 'react';
 import { Outlet, RouteObject } from 'react-router-dom';
+import Home from '@/pages/home';
+import Recommend from '@/components/Recommend';
 
 export interface extraBizObject {
   title?: string;
@@ -18,10 +20,10 @@ const RootLayout: React.FC = () => {
 export const router: ZHRouter[] = [
   {
     path: '/',
-    element: <RootLayout />,
+    element: <Home />,
     title: '首页',
     children: [
-      { path: '', element: <div>推荐</div> },
+      { path: '/', element: <Recommend /> },
       { path: 'follow', element: <div>关注</div> },
       { path: 'hot', element: <div>热榜</div> },
       { path: 'column', element: <div>专栏</div> },
