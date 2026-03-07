@@ -1,99 +1,69 @@
 import React from 'react';
+import {
+  PencilSquareIcon,
+  DocumentTextIcon,
+  QuestionMarkCircleIcon,
+  ArchiveBoxIcon,
+  VideoCameraIcon,
+  PhotoIcon
+} from '@heroicons/react/24/outline';
+
+const creationItems = [
+  { icon: QuestionMarkCircleIcon, label: '回答问题', color: 'var(--neon-cyan)', bg: 'rgba(0, 245, 255, 0.1)' },
+  { icon: DocumentTextIcon, label: '写文章', color: 'var(--neon-green)', bg: 'rgba(16, 185, 129, 0.1)' },
+  { icon: PencilSquareIcon, label: '发微文', color: 'var(--neon-purple)', bg: 'rgba(139, 92, 246, 0.1)' },
+  { icon: VideoCameraIcon, label: '发视频', color: 'var(--neon-pink)', bg: 'rgba(255, 0, 255, 0.1)' },
+  { icon: PhotoIcon, label: '上传图片', color: 'var(--neon-orange)', bg: 'rgba(245, 158, 11, 0.1)' },
+  { icon: ArchiveBoxIcon, label: '草稿箱', color: 'var(--text-secondary)', bg: 'rgba(148, 163, 184, 0.1)' },
+];
 
 export default function Creation() {
   return (
-    <div className="bg-white p-4">
+    <div className="p-4 animate-fade-in-right delay-300">
       {/* 顶部标题 */}
-      <div className="flex justify-between items-center mb-4">
-        <div className="font-semibold text-base">创作中心</div>
-        <div className="text-sm text-gray-500">草稿箱(0)</div>
+      <div className="flex justify-between items-center mb-6">
+        <div className="text-lg font-semibold text-[var(--text-primary)] flex items-center gap-2">
+          <span className="w-1 h-5 bg-gradient-to-b from-[var(--neon-cyan)] to-[var(--neon-purple)] rounded-full animate-pulse-glow"></span>
+          创作中心
+        </div>
+        <div className="text-sm text-[var(--text-muted)] hover:text-[var(--neon-cyan)] transition-colors cursor-pointer">草稿箱(0)</div>
       </div>
 
-      {/* 底部功能按钮 */}
-      <div className="flex justify-between">
-        {/* 回答问题 */}
-        <div className="flex flex-col items-center cursor-pointer">
-          <div className="w-10 h-10 bg-blue-50 rounded flex items-center justify-center mb-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-blue-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
-          </div>
-          <span className="text-xs text-gray-600">回答问题</span>
+      {/* 统计数据 */}
+      <div className="grid grid-cols-3 gap-3 mb-6">
+        <div className="text-center p-3 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-color)] transition-all duration-300 hover:border-[var(--neon-cyan)] hover:shadow-[0_0_15px_rgba(0,245,255,0.2)] group">
+          <div className="text-lg font-bold stat-number">0</div>
+          <div className="text-xs text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition-colors">昨日阅读</div>
         </div>
+        <div className="text-center p-3 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-color)] transition-all duration-300 hover:border-[var(--neon-purple)] hover:shadow-[0_0_15px_rgba(139,92,246,0.2)] group">
+          <div className="text-lg font-bold" style={{ background: 'linear-gradient(135deg, var(--neon-purple), var(--neon-pink))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>0</div>
+          <div className="text-xs text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition-colors">昨日收益</div>
+        </div>
+        <div className="text-center p-3 rounded-lg bg-[var(--bg-secondary)] border border-[var(--border-color)] transition-all duration-300 hover:border-[var(--neon-green)] hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] group">
+          <div className="text-lg font-bold" style={{ background: 'linear-gradient(135deg, var(--neon-green), var(--neon-cyan))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>0</div>
+          <div className="text-xs text-[var(--text-muted)] group-hover:text-[var(--text-secondary)] transition-colors">累计赞同</div>
+        </div>
+      </div>
 
-        {/* 写文章 */}
-        <div className="flex flex-col items-center cursor-pointer">
-          <div className="w-10 h-10 bg-green-50 rounded flex items-center justify-center mb-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-green-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
+      {/* 功能按钮 */}
+      <div className="grid grid-cols-3 gap-3">
+        {creationItems.map((item, index) => (
+          <div
+            key={item.label}
+            className="flex flex-col items-center cursor-pointer group animate-scale-in"
+            style={{ animationDelay: `${0.4 + index * 0.1}s` }}
+          >
+            <div
+              className="w-12 h-12 rounded-xl flex items-center justify-center mb-2 transition-all duration-300 group-hover:scale-125 group-hover:rotate-6"
+              style={{ backgroundColor: item.bg }}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-              />
-            </svg>
+              <item.icon className="h-6 w-6 transition-all duration-300 group-hover:scale-110" style={{ color: item.color }} />
+            </div>
+            <span className="text-xs text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-all duration-300 group-hover:font-medium">
+              {item.label}
+            </span>
           </div>
-          <span className="text-xs text-gray-600">写文章</span>
-        </div>
-
-        {/* 发起提问 */}
-        <div className="flex flex-col items-center cursor-pointer">
-          <div className="w-10 h-10 bg-orange-50 rounded flex items-center justify-center mb-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-orange-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </div>
-          <span className="text-xs text-gray-600">发起提问</span>
-        </div>
-
-        {/* 草稿箱 */}
-        <div className="flex flex-col items-center cursor-pointer">
-          <div className="w-10 h-10 bg-gray-50 rounded flex items-center justify-center mb-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-gray-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-              />
-            </svg>
-          </div>
-          <span className="text-xs text-gray-600">草稿箱</span>
-        </div>
+        ))}
       </div>
     </div>
   );

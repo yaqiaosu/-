@@ -6,6 +6,6 @@ export type CardProps = {
 
 export default function Card({ children, className }: CardProps) {
   return (
-    <div className={`bg-white border border-slate-200 m-4 rounded-sm shadow-md p-4 ${className || ''}`}>{children}</div>
+    <div className={`cyber-card ${className || ''}`}>{children}</div>
   );
 }

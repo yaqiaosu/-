@@ -5,18 +5,17 @@ import Tabs from './Tabs';
 import Creation from './Creation';
 import SelfFunctions from './SelfFunctions';
 import AdvancedBtns from './AdvancedBtns';
+
 export default function Home() {
-  const [hideTabs, setHideTabs] = useState(true); // 第二个导航栏Tabs（滚动时显示）
+  const [hideTabs, setHideTabs] = useState(true);
   const scrollTopRef = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollTop = window.scrollY;
       if (currentScrollTop > scrollTopRef.current && currentScrollTop > 50) {
-        // 向上滚动，显示Tabs
         setHideTabs(false);
       } else {
-        // 向下滚动，隐藏Tabs
         setHideTabs(true);
       }
       scrollTopRef.current = currentScrollTop;
@@ -27,26 +26,33 @@ export default function Home() {
   }, []);
 
   const handleClick = (isHide: boolean) => {
-    console.log(isHide, 'isHide');
     setHideTabs(isHide);
   };
+
   return (
-    <div className="bg-slate-100 min-h-screen">
+    <div className="min-h-screen">
       <Navigation hideTabs={hideTabs} />
-      <div className="mx-auto max-w-5xl border flex my-2 px-2 pt-12">
-        <Card className="w-2/3">
-          <Tabs handleClick={handleClick} />
-        </Card>
-        <div className="w-1/3 flex flex-col flex-1">
-          <Card>
-            <Creation />
-          </Card>
-          <Card>
-            <AdvancedBtns />
-          </Card>
-          <Card>
-            <SelfFunctions />
-          </Card>
+      <div className="mx-auto max-w-6xl pt-20 pb-8 px-4">
+        <div className="flex gap-6">
+          {/* 左侧内容区 */}
+          <div className="flex-1">
+            <Card className="animate-fade-in-up">
+              <Tabs handleClick={handleClick} />
+            </Card>
+          </div>
+
+          {/* 右侧侧边栏 */}
+          <div className="w-80 flex flex-col gap-4">
+            <Card className="animate-fade-in-right">
+              <Creation />
+            </Card>
+            <Card className="animate-fade-in-right delay-100">
+              <AdvancedBtns />
+            </Card>
+            <Card className="animate-fade-in-right delay-200">
+              <SelfFunctions />
+            </Card>
+          </div>
         </div>
       </div>
     </div>

@@ -1,23 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+
 const tabs = [
-  {
-    name: '关注',
-    to: '/follow',
-  },
-  {
-    name: '推荐',
-    to: '/',
-  },
-  {
-    name: '热榜',
-    to: '/hot',
-  },
-  {
-    name: '专栏',
-    to: '/column',
-  },
+  { name: '关注', to: '/follow' },
+  { name: '推荐', to: '/' },
+  { name: '热榜', to: '/hot' },
+  { name: '专栏', to: '/column' },
 ];
+
 export const PureTabs = () => {
   return (
     <div className="w-full">
@@ -28,8 +18,8 @@ export const PureTabs = () => {
             key={item.name}
             className={({ isActive }) => {
               return (
-                'whitespace-nowrap p-4 text-base transition-all ' +
-                (isActive ? 'text-blue-600 font-bold' : 'text-black hover:text-gray-500')
+                'whitespace-nowrap p-4 text-base transition-all cyber-tab' +
+                (isActive ? ' active text-[var(--neon-cyan)]' : ' text-[var(--text-secondary)] hover:text-white')
               );
             }}
           >
@@ -46,7 +36,6 @@ export default function Tabs({ handleClick }: { handleClick: (isHide: boolean) =
   useEffect(() => {
     const intersectionObserver = new IntersectionObserver((entries) => {
       const entry = entries[0];
-      console.log(entry?.isIntersecting, 'entry.isIntersecting');
       handleClick(entry?.isIntersecting ?? false);
     });
     if (scrollRef.current) {
