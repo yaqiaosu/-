@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
 const tabs = [
@@ -31,23 +31,9 @@ export const PureTabs = () => {
   );
 };
 
-export default function Tabs({ handleClick }: { handleClick: (isHide: boolean) => void }) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const intersectionObserver = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      handleClick(entry?.isIntersecting ?? false);
-    });
-    if (scrollRef.current) {
-      intersectionObserver.observe(scrollRef.current);
-    }
-    return () => {
-      intersectionObserver.disconnect();
-    };
-  }, []);
+export default function Tabs() {
   return (
     <div className="w-full">
-      <div ref={scrollRef}></div>
       <div className="flex mx-6 box-border">
         <PureTabs />
       </div>

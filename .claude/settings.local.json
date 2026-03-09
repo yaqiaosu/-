@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(rm:*)",
+      "Bash(NODE_OPTIONS=--openssl-legacy-provider npx dumi:*)",
+      "Bash(curl:*)",
+      "Bash(lsof:*)",
+      "Bash(pkill:*)",
+      "Bash(pnpm run:*)",
+      "Bash(pnpm:*)",
+      "mcp__ide__getDiagnostics"
+    ]
+  }
+}

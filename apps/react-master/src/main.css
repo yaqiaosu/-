@@ -1,30 +1,30 @@
 @import "tailwindcss";
 
-/* !  自定义配置 - 深色科技风 (Cyberpunk) */
+/* ! 优化设计 - 现代科技风 */
 
 :root {
-  /* 深色主背景 */
-  --bg-primary: #0a0e17;
-  --bg-secondary: #111827;
-  --bg-card: #1a1f2e;
-  --bg-card-hover: #232938;
+  /* 深色主背景 - 更深的黑色 */
+  --bg-primary: #050810;
+  --bg-secondary: #0f1419;
+  --bg-card: #161b28;
+  --bg-card-hover: #1e2433;
 
-  /* 霓虹色彩 */
-  --neon-cyan: #00f5ff;
-  --neon-pink: #ff00ff;
-  --neon-purple: #8b5cf6;
-  --neon-blue: #3b82f6;
-  --neon-green: #10b981;
-  --neon-orange: #f59e0b;
+  /* 霓虹色彩 - 更柔和的发光 */
+  --neon-cyan: #00d9ff;
+  --neon-pink: #ff1493;
+  --neon-purple: #9d4edd;
+  --neon-blue: #3a86ff;
+  --neon-green: #06ffa5;
+  --neon-orange: #fb5607;
 
   /* 文字 */
-  --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-primary: #f0f3f7;
+  --text-secondary: #8b95a5;
+  --text-muted: #5a6370;
 
   /* 边框 */
-  --border-color: #2d3748;
-  --border-glow: rgba(0, 245, 255, 0.3);
+  --border-color: #252d3d;
+  --border-glow: rgba(0, 217, 255, 0.2);
 }
 
 * {
@@ -34,12 +34,12 @@
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Sohne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* 背景网格效果 - 动态 */
+/* 背景网格效果 - 更细致 */
 body::before {
   content: '';
   position: fixed;
@@ -48,20 +48,20 @@ body::before {
   width: 200%;
   height: 200%;
   background-image:
-    linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
+    linear-gradient(rgba(0, 217, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 217, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
   pointer-events: none;
   z-index: -2;
-  animation: gridMove 30s linear infinite;
+  animation: gridMove 40s linear infinite;
 }
 
 @keyframes gridMove {
   0% { transform: translate(0, 0); }
-  100% { transform: translate(-50%, -50%); }
+  100% { transform: translate(-60px, -60px); }
 }
 
-/* 背景渐变光晕 */
+/* 背景渐变光晕 - 更柔和 */
 body::after {
   content: '';
   position: fixed;
@@ -70,26 +70,26 @@ body::after {
   width: 200%;
   height: 200%;
   background:
-    radial-gradient(ellipse at 20% 20%, rgba(0, 245, 255, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(255, 0, 255, 0.03) 0%, transparent 40%);
+    radial-gradient(ellipse at 15% 25%, rgba(0, 217, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 75%, rgba(157, 78, 221, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 20, 147, 0.02) 0%, transparent 40%);
   pointer-events: none;
   z-index: -1;
-  animation: auroraMove 20s ease-in-out infinite;
+  animation: auroraMove 25s ease-in-out infinite;
 }
 
 @keyframes auroraMove {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(2%, 2%) scale(1.05); }
-  50% { transform: translate(0, 4%) scale(1); }
-  75% { transform: translate(-2%, 2%) scale(1.05); }
+  25% { transform: translate(1%, 1%) scale(1.02); }
+  50% { transform: translate(0, 2%) scale(1); }
+  75% { transform: translate(-1%, 1%) scale(1.02); }
 }
 
-/* 页面加载动画 */
+/* 页面加载动画 - 优化版 */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -100,7 +100,7 @@ body::after {
 @keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-20px);
   }
   to {
     opacity: 1;
@@ -111,7 +111,7 @@ body::after {
 @keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(20px);
   }
   to {
     opacity: 1;
@@ -122,7 +122,7 @@ body::after {
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
@@ -132,22 +132,22 @@ body::after {
 
 /* 交错动画延迟 */
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
 }
 
 .animate-fade-in-left {
-  animation: fadeInLeft 0.6s ease-out forwards;
+  animation: fadeInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
 }
 
 .animate-fade-in-right {
-  animation: fadeInRight 0.6s ease-out forwards;
+  animation: fadeInRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
 }
 
 .animate-scale-in {
-  animation: scaleIn 0.5s ease-out forwards;
+  animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
 }
 
@@ -161,44 +161,45 @@ body::after {
 .delay-700 { animation-delay: 0.7s; }
 .delay-800 { animation-delay: 0.8s; }
 
-/* 霓虹发光文字 */
+/* 霓虹发光文字 - 优化版 */
 .neon-text {
   text-shadow:
-    0 0 5px var(--neon-cyan),
-    0 0 10px var(--neon-cyan),
-    0 0 20px var(--neon-cyan);
+    0 0 4px var(--neon-cyan),
+    0 0 8px var(--neon-cyan),
+    0 0 16px var(--neon-cyan);
 }
 
 .neon-text-pink {
   text-shadow:
-    0 0 5px var(--neon-pink),
-    0 0 10px var(--neon-pink),
-    0 0 20px var(--neon-pink);
+    0 0 4px var(--neon-pink),
+    0 0 8px var(--neon-pink),
+    0 0 16px var(--neon-pink);
 }
 
-/* 霓虹边框 */
+/* 霓虹边框 - 优化版 */
 .neon-border {
   border: 1px solid var(--neon-cyan);
   box-shadow:
-    0 0 5px var(--neon-cyan),
-    inset 0 0 5px rgba(0, 245, 255, 0.1);
+    0 0 8px var(--neon-cyan),
+    inset 0 0 8px rgba(0, 217, 255, 0.08);
 }
 
 .neon-border-pink {
   border: 1px solid var(--neon-pink);
   box-shadow:
-    0 0 5px var(--neon-pink),
-    inset 0 0 5px rgba(255, 0, 255, 0.1);
+    0 0 8px var(--neon-pink),
+    inset 0 0 8px rgba(255, 20, 147, 0.08);
 }
 
-/* 卡片样式 */
+/* 卡片样式 - 优化版 */
 .cyber-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(10px);
 }
 
 .cyber-card::before {
@@ -211,10 +212,10 @@ body::after {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(0, 245, 255, 0.1),
+    rgba(0, 217, 255, 0.08),
     transparent
   );
-  transition: left 0.5s ease;
+  transition: left 0.6s ease;
 }
 
 .cyber-card:hover::before {
@@ -222,25 +223,26 @@ body::after {
 }
 
 .cyber-card:hover {
-  border-color: var(--neon-cyan);
+  border-color: rgba(0, 217, 255, 0.4);
   box-shadow:
-    0 0 20px rgba(0, 245, 255, 0.15),
-    0 8px 30px rgba(0, 0, 0, 0.4);
-  transform: translateY(-4px);
+    0 0 30px rgba(0, 217, 255, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
-/* 按钮样式 */
+/* 按钮样式 - 优化版 */
 .cyber-btn {
   background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
   border: none;
-  border-radius: 8px;
-  padding: 8px 20px;
+  border-radius: 10px;
+  padding: 10px 24px;
   color: white;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  font-size: 14px;
 }
 
 .cyber-btn::before {
@@ -253,52 +255,54 @@ body::after {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.2),
     transparent
   );
   transition: left 0.5s ease;
 }
 
 .cyber-btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow:
-    0 0 25px rgba(59, 130, 246, 0.6),
-    0 8px 20px rgba(0, 0, 0, 0.4);
+    0 0 20px rgba(58, 134, 255, 0.5),
+    0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .cyber-btn:hover::before {
   left: 100%;
 }
 
-/* 输入框样式 */
+/* 输入框样式 - 优化版 */
 .cyber-input {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
-  border-radius: 24px;
-  padding: 8px 20px;
+  border-radius: 28px;
+  padding: 10px 20px;
   color: var(--text-primary);
   outline: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 14px;
 }
 
 .cyber-input:focus {
   border-color: var(--neon-cyan);
   box-shadow:
-    0 0 15px rgba(0, 245, 255, 0.3),
-    0 0 30px rgba(0, 245, 255, 0.15);
+    0 0 20px rgba(0, 217, 255, 0.2),
+    0 0 40px rgba(0, 217, 255, 0.1);
 }
 
 .cyber-input::placeholder {
   color: var(--text-muted);
 }
 
-/* Tab 样式 */
+/* Tab 样式 - 优化版 */
 .cyber-tab {
-  padding: 8px 16px;
+  padding: 10px 18px;
   color: var(--text-secondary);
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  font-weight: 500;
 }
 
 .cyber-tab::after {
@@ -307,11 +311,11 @@ body::after {
   bottom: -2px;
   left: 50%;
   transform: translateX(-50%) scaleX(0);
-  width: 80%;
+  width: 70%;
   height: 2px;
   background: var(--neon-cyan);
-  box-shadow: 0 0 10px var(--neon-cyan);
-  transition: transform 0.3s ease;
+  box-shadow: 0 0 8px var(--neon-cyan);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cyber-tab:hover {
@@ -320,50 +324,50 @@ body::after {
 
 .cyber-tab.active {
   color: var(--neon-cyan);
-  text-shadow: 0 0 10px var(--neon-cyan);
+  text-shadow: 0 0 8px var(--neon-cyan);
 }
 
 .cyber-tab.active::after {
   transform: translateX(-50%) scaleX(1);
 }
 
-/* 图标按钮 */
+/* 图标按钮 - 优化版 */
 .cyber-icon-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   padding: 12px 16px;
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   color: var(--text-secondary);
 }
 
 .cyber-icon-btn:hover {
-  background: rgba(0, 245, 255, 0.1);
+  background: rgba(0, 217, 255, 0.08);
   color: var(--neon-cyan);
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
 
 .cyber-icon-btn:hover .icon-wrapper {
-  transform: scale(1.15) rotate(5deg);
-  box-shadow: 0 0 20px var(--neon-cyan);
+  transform: scale(1.12) rotate(5deg);
+  box-shadow: 0 0 16px var(--neon-cyan);
 }
 
 .icon-wrapper {
   width: 40px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
 }
 
-/* 滚动条样式 */
+/* 滚动条样式 - 优化版 */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -375,6 +379,7 @@ body::after {
 ::-webkit-scrollbar-thumb {
   background: var(--border-color);
   border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -414,9 +419,18 @@ body::after {
   animation: float 4s ease-in-out infinite;
 }
 
-/* 脉冲发光 */
+/* 脉冲发光 - 优化版 */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 4px var(--neon-cyan);
+  }
+  50% {
+    box-shadow: 0 0 16px var(--neon-cyan), 0 0 24px var(--neon-cyan);
+  }
+}
+
 .animate-pulse-glow {
-  animation: pulse-glow 2.5s ease-in-out infinite;
+  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 /* 闪光效果 */
@@ -453,13 +467,13 @@ body::after {
   box-shadow: 0 0 20px var(--neon-cyan);
 }
 
-/* 内容卡片 */
+/* 内容卡片 - 优化版 */
 .content-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 20px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
@@ -474,12 +488,12 @@ body::after {
   background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple), var(--neon-pink));
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .content-card:hover {
-  border-color: rgba(0, 245, 255, 0.3);
-  box-shadow: 0 0 40px rgba(0, 245, 255, 0.08);
+  border-color: rgba(0, 217, 255, 0.2);
+  box-shadow: 0 0 30px rgba(0, 217, 255, 0.06);
 }
 
 .content-card:hover::before {
@@ -525,14 +539,14 @@ body::after {
   }
 }
 
-/* Logo 动画 */
+/* Logo 动画 - 优化版 */
 .logo-glow {
-  filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.5));
-  transition: filter 0.3s ease;
+  filter: drop-shadow(0 0 6px rgba(0, 217, 255, 0.4));
+  transition: filter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo-glow:hover {
-  filter: drop-shadow(0 0 15px rgba(0, 245, 255, 0.8)) drop-shadow(0 0 30px rgba(139, 92, 246, 0.5));
+  filter: drop-shadow(0 0 12px rgba(0, 217, 255, 0.6)) drop-shadow(0 0 24px rgba(157, 78, 221, 0.4));
 }
 
 /* 分割线 */
@@ -556,7 +570,7 @@ body::after {
   background-clip: text;
 }
 
-/* 功能卡片悬停 */
+/* 功能卡片悬停 - 优化版 */
 .feature-card {
   position: relative;
   overflow: hidden;
@@ -572,10 +586,10 @@ body::after {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(0, 245, 255, 0.05),
+    rgba(0, 217, 255, 0.04),
     transparent
   );
-  transition: left 0.6s ease;
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .feature-card:hover::before {

@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
+import { useSearch, SearchResult } from 'yaya-hooks';
 
-export default function Search() {
+export interface SearchProps {
+  onSearch?: (results: SearchResult[], keyword: string) => void;
+  onSearchStart?: () => void;
+}
+
+export default function Search({ onSearch, onSearchStart }: SearchProps) {
+  const {
+    keyword,
+    setKeyword,
+    results,
+    loading,
+    search,
+  } = useSearch({
+    onSuccess: (data) => {
+      onSearch?.(data, keyword);
+    },
+  });
+
+  const handleSearch = useCallback(() => {
+    onSearchStart?.();
+    search();
+  }, [search, onSearchStart]);
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  }, [handleSearch]);
+
   return (
     <div className="flex items-center animate-fade-in-up delay-100">
       <div className="relative group">
@@ -11,10 +40,17 @@ export default function Search() {
           className="cyber-input w-72 pl-12 pr-4 transition-all duration-300"
           placeholder="搜索问题..."
           name="search"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
       </div>
-      <button className="cyber-btn ml-4 animate-float">
-        提问
+      <button
+        className="cyber-btn ml-4 animate-float"
+        onClick={handleSearch}
+        disabled={loading}
+      >
+        {loading ? '搜索中...' : '搜索'}
       </button>
     </div>
   );

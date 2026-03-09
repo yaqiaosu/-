@@ -5,13 +5,20 @@ module.exports = merge(base(true), {
   mode: 'development',
   devtool: 'eval-cheap-module-source-map',
   devServer: {
-    port: 3000,
+    port: 3002,
     compress: true,
     hot: true,
     historyApiFallback: true,
-    open: true,
+    open: false,
     static: {
       directory: path.resolve(__dirname, '../public'),
     },
+    proxy: [
+      {
+        context: ['/api'],
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      },
+    ],
   },
 });

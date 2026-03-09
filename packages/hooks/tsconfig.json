@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "noEmit": false,
+    "types": ["vitest"],
+    "verbatimModuleSyntax": false,
+    "module": "ESNext",
+    "target": "ES2016",
+    "paths": {
+      "yaya-hooks": ["./src/index.ts"],
+      "yaya-hooks/useToggle": ["./src/useToggle/index.ts"],
+      "react": ["../../node_modules/react"],
+      "react-dom": ["../../node_modules/react-dom"]
+    }
+  },
+  "include": ["src/**/*", "src/**/*.test.ts", "src/**/*.spec.ts"]
+}

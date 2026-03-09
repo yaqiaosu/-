@@ -2,11 +2,13 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 
+const projectRoot = path.resolve(__dirname, '..');
+
 module.exports = function (isDev) {
   return {
-    entry: path.resolve(__dirname, '../src/index.tsx'),
+    entry: path.resolve(projectRoot, 'src/index.tsx'),
     output: {
-      path: path.resolve(__dirname, '../dist'),
+      path: path.resolve(projectRoot, 'dist'),
       filename: 'static/js/[name].[hash:8].js',
       clean: true,
       // !打包后的文件路径
@@ -15,7 +17,8 @@ module.exports = function (isDev) {
     resolve: {
       extensions: ['.tsx', '.ts', '.jsx', '.js'],
       alias: {
-        '@': path.resolve(__dirname, '../src'),
+        '@': path.resolve(projectRoot, 'src'),
+        'yaya-hooks': path.resolve(projectRoot, '../../packages/hooks/src'),
       },
     },
     module: {

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { RefObject, useEffect, useRef, useState } from 'react';
 import { mockList } from '@/mock/mokeList';
 import { HandThumbUpIcon, ChatBubbleLeftIcon, ShareIcon, BookmarkIcon } from '@heroicons/react/24/outline';
+import { apiGet } from '@/apis/request';
 
 const RecommendData = ({ item, index }: { item: (typeof mockList)[0]; index: number }) => {
   const [selected, setSelected] = useState<boolean>(false);
@@ -25,13 +26,13 @@ const RecommendData = ({ item, index }: { item: (typeof mockList)[0]; index: num
   const commentCount = item?.target?.comment_count || 0;
 
   return (
-    <div
-      className="content-card mb-4 feature-card list-item"
-      style={{ animationDelay: `${index * 0.15 + 0.3}s` }}
-    >
+    <div className="content-card mb-4 feature-card list-item" style={{ animationDelay: `${index * 0.15 + 0.3}s` }}>
       {/* 标题部分 */}
       <div className="mb-3">
-        <a href="" className="text-xl font-bold text-[var(--text-primary)] hover:text-[var(--neon-cyan)] transition-all duration-300 leading-relaxed inline-block">
+        <a
+          href=""
+          className="text-xl font-bold text-[var(--text-primary)] hover:text-[var(--neon-cyan)] transition-all duration-300 leading-relaxed inline-block"
+        >
           {title}
         </a>
       </div>
@@ -57,9 +58,7 @@ const RecommendData = ({ item, index }: { item: (typeof mockList)[0]; index: num
             dangerouslySetInnerHTML={{ __html: item?.target?.question?.content || item?.target?.content || '暂无内容' }}
           />
         ) : (
-          <p className="text-[var(--text-secondary)] leading-relaxed line-clamp-3">
-            {excerpt}
-          </p>
+          <p className="text-[var(--text-secondary)] leading-relaxed line-clamp-3">{excerpt}</p>
         )}
         <button
           className="text-[var(--neon-cyan)] text-sm mt-2 hover:underline transition-all duration-300"
@@ -81,7 +80,9 @@ const RecommendData = ({ item, index }: { item: (typeof mockList)[0]; index: num
                 : 'text-[var(--text-secondary)] hover:bg-[var(--neon-cyan)]/10 hover:text-[var(--neon-cyan)]'
             }`}
           >
-            <HandThumbUpIcon className={`h-4 w-4 transition-transform duration-300 ${liked ? 'fill-current scale-110' : ''}`} />
+            <HandThumbUpIcon
+              className={`h-4 w-4 transition-transform duration-300 ${liked ? 'fill-current scale-110' : ''}`}
+            />
             <span className="text-sm">{likeCount}</span>
           </button>
 
@@ -107,7 +108,9 @@ const RecommendData = ({ item, index }: { item: (typeof mockList)[0]; index: num
               : 'text-[var(--text-secondary)] hover:bg-[var(--neon-green)]/10 hover:text-[var(--neon-green)]'
           }`}
         >
-          <BookmarkIcon className={`h-4 w-4 transition-transform duration-300 ${bookmarked ? 'fill-current scale-110' : ''}`} />
+          <BookmarkIcon
+            className={`h-4 w-4 transition-transform duration-300 ${bookmarked ? 'fill-current scale-110' : ''}`}
+          />
           <span className="text-sm">收藏</span>
         </button>
       </div>
@@ -115,12 +118,82 @@ const RecommendData = ({ item, index }: { item: (typeof mockList)[0]; index: num
   );
 };
 
+// 通用 hook - 无限滚动
+const useInfiniteScroll = (scrollRef: RefObject<HTMLDivElement>) => {
+  const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const len = useRef([]);
+  const loadingRef = useRef(false);
+  const hasMoreRef = useRef(true);
+
+  useEffect(() => {
+    if (!scrollRef.current) return;
+
+    const observer: IntersectionObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          if (loadingRef.current || !hasMoreRef.current) return;
+          loadingRef.current = true;
+          setLoading(true);
+
+          apiGet({ url: 'recommend', pageNum: len.current.length, pageSize: 10 })
+            .then((res: any) => {
+              const newItems = res?.data?.data?.items || [];
+              if (newItems.length === 0) {
+                hasMoreRef.current = false;
+              } else {
+                len.current = [...len.current, ...newItems];
+                setList([...len.current]);
+              }
+            })
+            .finally(() => {
+              loadingRef.current = false;
+              setLoading(false);
+            });
+        }
+      },
+      { threshold: 0.1 },
+    );
+    observer.observe(scrollRef.current);
+    return () => {
+      if (scrollRef.current) {
+        observer.disconnect();
+      }
+    };
+  }, [scrollRef]);
+
+  return [list, list.length, loading, hasMoreRef.current];
+};
+
+/**
+ * 推荐列表组件
+ * 用于展示推荐内容，支持无限滚动加载
+ */
 export default function RecommendList() {
+  // 创建滚动引用，用于检测滚动位置
+  const scrollRef = useRef<HTMLDivElement>(null);
+  // 使用自定义hook获取滚动数据
+  const [list, len, loading, hasMore] = useInfiniteScroll(scrollRef);
+
   return (
     <div className="flex flex-col">
-      {mockList.slice(0, 5).map((item: unknown, index: number) => {
+      {/* 遍历显示列表数据 */}
+      {(list || []).map((item: any, index: number) => {
         return <RecommendData key={index} index={index} item={item} />;
       })}
+      <div ref={scrollRef} className="text-center mt-4 text-[var(--text-secondary)] cursor-pointer py-4">
+        {loading ? (
+          <span className="flex items-center justify-center gap-2">
+            <span className="w-2 h-2 bg-[var(--neon-cyan)] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+            <span className="w-2 h-2 bg-[var(--neon-cyan)] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+            <span className="w-2 h-2 bg-[var(--neon-cyan)] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+          </span>
+        ) : hasMore ? (
+          <span className="text-[var(--text-muted)]">上拉加载更多</span>
+        ) : (
+          <span className="text-[var(--neon-purple)]">没有更多了</span>
+        )}
+      </div>
     </div>
   );
 }

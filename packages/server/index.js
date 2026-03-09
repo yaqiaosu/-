@@ -4,20 +4,24 @@ const { mockList } = require('./mock/mokeList');
 const app = express();
 const router = express.Router();
 app.use(cors());
+
 app.get('/api/recommend', (req, res) => {
-  console.log(req.query);
-  let { pageSize, pageNum } = req.query || {};
-  pageNum = +pageNum || 1;
-  pageSize = +pageSize || 10;
+  let { pageSize, pageNum } = req.query;
+  pageNum = parseInt(pageNum, 10) || 1;
+  pageSize = parseInt(pageSize, 10) || 10;
+  console.log(pageNum, pageSize);
+
   res.json({
     code: 200,
-    data: mockList.slice(pageNum, pageNum + pageSize),
-    total: mockList.length,
-    pageNum,
-    pageSize,
+    data: {
+      items: mockList.slice(pageNum, pageNum + pageSize),
+      total: mockList.length,
+      pageNum,
+      pageSize,
+    },
   });
 });
 
 app.listen(3001, () => {
-  console.log('Server is running on port 3001');
+  console.log('Server is running on http://localhost:3001');
 });
