@@ -2,7 +2,7 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   // 基础配置
-  base: '/',
+  base: '/-/',
   // 主题配置
   themeConfig: {
     name: 'YaYa Hooks',
