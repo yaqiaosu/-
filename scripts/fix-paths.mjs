@@ -37,9 +37,10 @@ for (const file of files) {
   }
 }
 
-// Update index.html paths to add /-/ prefix
-html = html.replace(/src="\.\//g, 'src="/-/');
-html = html.replace(/href="\.\//g, 'href="/-/');
+// Update index.html paths to use /_site/ prefix
+// First replace absolute paths like /umi.js with /-/_site/umi.js
+html = html.replace(/src="\/umi/g, 'src="/-/_site/umi');
+html = html.replace(/href="\//g, 'href="/-/_site/');
 fs.writeFileSync(indexHtmlPath, html);
 
 console.log('Build ready for /-/ deployment');
