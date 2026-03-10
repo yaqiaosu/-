@@ -3,6 +3,8 @@ import { defineConfig } from 'dumi';
 export default defineConfig({
   // 基础配置
   base: '/',
+  // 公共路径 - 解决动态加载资源的路径问题
+  publicPath: '/',
   // 主题配置
   themeConfig: {
     name: 'YaYa Hooks',

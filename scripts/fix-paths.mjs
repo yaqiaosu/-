@@ -13,36 +13,33 @@ if (!fs.existsSync(indexHtmlPath)) {
   process.exit(1);
 }
 
-// Check if -/ subdirectory exists (from previous builds)
-const subDirPath = path.join(distPath, '-');
-if (fs.existsSync(subDirPath)) {
-  // Move all files from -/ to dist root
-  const files = fs.readdirSync(subDirPath);
-  for (const file of files) {
-    const srcPath = path.join(subDirPath, file);
-    const destPath = path.join(distPath, file);
-    if (fs.statSync(srcPath).isFile()) {
-      fs.renameSync(srcPath, destPath);
-      console.log(`Moved ${file} to root`);
-    } else if (fs.statSync(srcPath).isDirectory()) {
-      fs.renameSync(srcPath, destPath);
-      console.log(`Moved ${file}/ to root`);
-    }
-  }
-  // Remove empty - directory
-  fs.rmdirSync(subDirPath);
-}
-
-// Update index.html
+// Read index.html before moving
 let html = fs.readFileSync(indexHtmlPath, 'utf8');
 
-// Fix script src: /umi.js -> ./umi.js (relative path)
-html = html.replace(/src="\/([^"]+\.js)"/g, 'src="./$1"');
+// Move all files to -/ subdirectory for GitHub Pages (repo name is -)
+const targetPath = path.join(distPath, '-');
+if (!fs.existsSync(targetPath)) {
+  fs.mkdirSync(targetPath, { recursive: true });
+}
 
-// Fix href: / -> ./
-html = html.replace(/href="\//g, 'href="./');
+const files = fs.readdirSync(distPath);
+for (const file of files) {
+  const srcPath = path.join(distPath, file);
+  const destPath = path.join(targetPath, file);
 
+  // Skip -/ itself and keep index.html at root
+  if (file === '-' || file === 'index.html') continue;
+
+  if (fs.statSync(srcPath).isFile()) {
+    fs.renameSync(srcPath, destPath);
+  } else if (fs.statSync(srcPath).isDirectory()) {
+    fs.renameSync(srcPath, destPath);
+  }
+}
+
+// Update index.html paths to add /-/ prefix
+html = html.replace(/src="\.\//g, 'src="/-/');
+html = html.replace(/href="\.\//g, 'href="/-/');
 fs.writeFileSync(indexHtmlPath, html);
-console.log('Updated index.html paths to relative');
 
-console.log('Build ready for root deployment');
+console.log('Moved all files to -/ subdirectory for GitHub Pages');
