@@ -17,7 +17,8 @@ let html = fs.readFileSync(distPath, 'utf8');
 // Fix static asset paths for GitHub Pages subdirectory
 html = html
   .replace(/src="\/umi/g, 'src="/-/umi')
-  .replace(/href="\//g, 'href="/-/');
+  .replace(/href="\//g, 'href="/-/')
+  .replace(/window\.routerBase = "\/"/g, 'window.routerBase = "/-/"');
 
 fs.writeFileSync(distPath, html);
 console.log('Fixed asset paths in index.html');
