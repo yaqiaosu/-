@@ -33,11 +33,16 @@ if (fs.existsSync(subDirPath)) {
   fs.rmdirSync(subDirPath);
 }
 
-// Update index.html - keep paths at / (root) since files are now in root
+// Update index.html
 let html = fs.readFileSync(indexHtmlPath, 'utf8');
-html = html.replace(/src="\/-\//g, 'src="/');
-html = html.replace(/href="\/-\//g, 'href="/');
+
+// Fix script src: /umi.js -> ./umi.js (relative path)
+html = html.replace(/src="\/([^"]+\.js)"/g, 'src="./$1"');
+
+// Fix href: / -> ./
+html = html.replace(/href="\//g, 'href="./');
+
 fs.writeFileSync(indexHtmlPath, html);
-console.log('Updated index.html paths');
+console.log('Updated index.html paths to relative');
 
 console.log('Build ready for root deployment');
