@@ -1,8 +1,8 @@
 import { defineConfig } from 'dumi';
 
 export default defineConfig({
-  // 基础配置
-  base: '/-/',
+  // 基础配置 - 部署到 GitHub Pages 根目录
+  base: '/',
   // 主题配置
   themeConfig: {
     name: 'YaYa Hooks',
