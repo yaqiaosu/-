@@ -24,3 +24,4 @@ export interface IApiParams {
 export const apiGet = ({ url, pageSize, pageNum, params }: IApiParams) => {
   return instance.get(`/${url}`, { params: { pageSize, pageNum, ...params } });
 };
+// fghjkl
