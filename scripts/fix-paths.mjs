@@ -16,8 +16,8 @@ if (!fs.existsSync(indexHtmlPath)) {
 // Read index.html before moving
 let html = fs.readFileSync(indexHtmlPath, 'utf8');
 
-// Move all files to -/ subdirectory for GitHub Pages (repo name is -)
-const targetPath = path.join(distPath, '-');
+// Move all files to _site subdirectory for GitHub Pages
+const targetPath = path.join(distPath, '_site');
 if (!fs.existsSync(targetPath)) {
   fs.mkdirSync(targetPath, { recursive: true });
 }
@@ -27,8 +27,8 @@ for (const file of files) {
   const srcPath = path.join(distPath, file);
   const destPath = path.join(targetPath, file);
 
-  // Skip -/ itself and keep index.html at root
-  if (file === '-' || file === 'index.html') continue;
+  // Skip _site itself and keep index.html at root
+  if (file === '_site' || file === 'index.html') continue;
 
   if (fs.statSync(srcPath).isFile()) {
     fs.renameSync(srcPath, destPath);
