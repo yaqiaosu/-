@@ -13,37 +13,31 @@ if (!fs.existsSync(indexHtmlPath)) {
   process.exit(1);
 }
 
-// Create -/ subdirectory for GitHub Pages
-const targetPath = path.join(distPath, '-');
-if (!fs.existsSync(targetPath)) {
-  fs.mkdirSync(targetPath, { recursive: true });
+// Check if -/ subdirectory exists (from previous builds)
+const subDirPath = path.join(distPath, '-');
+if (fs.existsSync(subDirPath)) {
+  // Move all files from -/ to dist root
+  const files = fs.readdirSync(subDirPath);
+  for (const file of files) {
+    const srcPath = path.join(subDirPath, file);
+    const destPath = path.join(distPath, file);
+    if (fs.statSync(srcPath).isFile()) {
+      fs.renameSync(srcPath, destPath);
+      console.log(`Moved ${file} to root`);
+    } else if (fs.statSync(srcPath).isDirectory()) {
+      fs.renameSync(srcPath, destPath);
+      console.log(`Moved ${file}/ to root`);
+    }
+  }
+  // Remove empty - directory
+  fs.rmdirSync(subDirPath);
 }
 
-// Move all files except -/ to -/ directory
-const files = fs.readdirSync(distPath);
-for (const file of files) {
-  const srcPath = path.join(distPath, file);
-  const destPath = path.join(targetPath, file);
-
-  // Skip -/ directory and index.html (keep at root for SPA fallback)
-  if (file === '-' || file === 'index.html' || file === '404.html') {
-    continue;
-  }
-
-  if (fs.statSync(srcPath).isFile()) {
-    fs.renameSync(srcPath, destPath);
-    console.log(`Moved ${file} to -/`);
-  } else if (fs.statSync(srcPath).isDirectory()) {
-    fs.renameSync(srcPath, destPath);
-    console.log(`Moved ${file}/ to -/`);
-  }
-}
-
-// Update index.html paths
+// Update index.html - keep paths at / (root) since files are now in root
 let html = fs.readFileSync(indexHtmlPath, 'utf8');
-html = html.replace(/src="\//g, 'src="/-/');
-html = html.replace(/href="\//g, 'href="/-/');
+html = html.replace(/src="\/-\//g, 'src="/');
+html = html.replace(/href="\/-\//g, 'href="/');
 fs.writeFileSync(indexHtmlPath, html);
 console.log('Updated index.html paths');
 
-console.log('Build ready for /-/ deployment');
+console.log('Build ready for root deployment');
