@@ -14,7 +14,7 @@ if (!fs.existsSync(distPath)) {
 
 let html = fs.readFileSync(distPath, 'utf8');
 
-// Fix routerBase for GitHub Pages root deployment
+// Fix routerBase - Dumi defaults to /-/ but we need / for GitHub Pages
 html = html.replace(/window\.routerBase = "\/-\/"/g, 'window.routerBase = "/"');
 
 fs.writeFileSync(distPath, html);
