@@ -42,4 +42,4 @@ html = html.replace(/src="\.\//g, 'src="/-/');
 html = html.replace(/href="\.\//g, 'href="/-/');
 fs.writeFileSync(indexHtmlPath, html);
 
-console.log('Moved all files to -/ subdirectory for GitHub Pages');
+console.log('Build ready for /-/ deployment');
