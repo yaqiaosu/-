@@ -1,5 +1,5 @@
 {
-  "name": "00.内容平台",
+  "name": "00-内容平台",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -10,7 +10,7 @@
     "start": "node scripts/start.mjs",
     "build": "node scripts/build.mjs",
     "site": "NODE_OPTIONS=--openssl-legacy-provider dumi dev",
-    "build:doc": "NODE_OPTIONS=--openssl-legacy-provider dumi build"
+    "build:doc": "NODE_OPTIONS=--openssl-legacy-provider dumi build && node scripts/fix-paths.mjs"
   },
   "keywords": [],
   "author": "",
