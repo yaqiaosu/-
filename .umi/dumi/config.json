@@ -28,6 +28,10 @@
             {
               "path": "/hooks/use-toggle",
               "title": "useToggle"
+            },
+            {
+              "path": "/hooks/use-local-storage-state",
+              "title": "useLocalStorageState"
             }
           ]
         },

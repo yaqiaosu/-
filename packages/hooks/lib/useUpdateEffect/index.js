@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("react"),t=require("../createUpdateEffect/index.js");function r(e){var t=Object.create(null);return e&&Object.keys(e).forEach(function(r){if("default"!==r){var c=Object.getOwnPropertyDescriptor(e,r);Object.defineProperty(t,r,c.get?c:{enumerable:!0,get:function(){return e[r]}})}}),t.default=e,Object.freeze(t)}var c=r(e),f=t.createUpdateEffect(c.useEffect);exports.default=f;
+//# sourceMappingURL=index.js.map

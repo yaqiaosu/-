@@ -1,7 +1,7 @@
 export const menu = [
   {
     title: 'status',
-    children: ['useToggle'],
+    children: ['useToggle', 'useLocalStorageState'],
   },
   {
     title: 'effect',

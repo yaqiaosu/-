@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../../src/createUpdateEffect/index.ts"],"sourcesContent":[null],"names":["createUpdateEffect","hook","effect","deps","isMountedRef","React","useRef","current"],"mappings":"wBAMO,MAAMA,EAAsEC,GAAS,CAACC,EAAwBC,KACnH,MAAMC,EAAeC,EAAMC,QAAO,GAElCL,EAAK,KACEG,EAAaG,QAGhBL,IAFAE,EAAaG,SAAU,GAIxBJ"}

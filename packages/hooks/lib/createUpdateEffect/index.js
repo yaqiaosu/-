@@ -1,0 +1,2 @@
+"use strict";function e(e){var t=Object.create(null);return e&&Object.keys(e).forEach(function(r){if("default"!==r){var c=Object.getOwnPropertyDescriptor(e,r);Object.defineProperty(t,r,c.get?c:{enumerable:!0,get:function(){return e[r]}})}}),t.default=e,Object.freeze(t)}var t=e(require("react"));exports.createUpdateEffect=e=>(r,c)=>{const n=t.useRef(!1);e(()=>{n.current?r():n.current=!0},c)};
+//# sourceMappingURL=index.js.map

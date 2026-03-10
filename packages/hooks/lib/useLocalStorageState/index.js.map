@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../../src/useLocalStorageState/index.ts"],"sourcesContent":[null],"names":["key","options","getStorage","storage","localStorage","createUseStorageState","useStorageState"],"mappings":"uIAOA,SAA0CA,EAAaC,GAErD,MAAMC,GAAaD,aAAO,EAAPA,EAASE,UAAO,KAAWC,cAE9C,OADwBC,EAAAA,sBAAsBH,EACvCI,CAAgBN,EAAKC,EAC9B"}

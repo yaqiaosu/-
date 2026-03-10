@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../../src/useUpdateEffect/index.ts"],"sourcesContent":[null],"names":["useUpdateEffect","createUpdateEffect","React","useEffect"],"mappings":"mZAEAA,EAAeC,EAAAA,mBAAmBC,EAAMC"}

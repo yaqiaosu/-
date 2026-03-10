@@ -1,18 +1,22 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist",
     "noEmit": false,
-    "types": ["vitest"],
-    "verbatimModuleSyntax": false,
+    "declaration": false,
+    "declarationMap": false,
+    "types": ["vitest", "node"],
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
     "module": "ESNext",
     "target": "ES2016",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "paths": {
       "yaya-hooks": ["./src/index.ts"],
-      "yaya-hooks/useToggle": ["./src/useToggle/index.ts"],
-      "react": ["../../node_modules/react"],
-      "react-dom": ["../../node_modules/react-dom"]
+      "yaya-hooks/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*", "src/**/*.test.ts", "src/**/*.spec.ts"]
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx", "src/**/*.spec.ts", "src/**/*.demo.ts", "src/**/*.demo.tsx", "src/**/demo/**", "src/**/__test__/**"]
 }

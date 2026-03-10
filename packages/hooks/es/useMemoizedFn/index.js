@@ -1,0 +1,2 @@
+import{useRef as r,useMemo as t}from"react";import{isDev as e,isFunction as n}from"../utils/index.js";function o(o){e&&(n(o)||console.error("useMemoizedFn expected parameter is a function, got "+typeof o));const u=r(o);u.current=t(()=>o,[o]);const c=r(null);return c.current||(c.current=function(...r){return u.current.apply(this,r)}),c.current}export{o as default};
+//# sourceMappingURL=index.js.map

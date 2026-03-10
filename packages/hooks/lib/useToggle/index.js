@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("react");exports.default=function(t=!1,s){const[a,u]=e.useState(t),l=e.useMemo(()=>void 0!==s?s:"boolean"==typeof t&&!t,[t,s]),o=e.useCallback(()=>{u(e=>e===t?l:t)},[t,l]),r=e.useCallback(e=>{u(e)},[]),c=e.useCallback(()=>{u(t)},[t]),b=e.useCallback(()=>{u(l)},[l]);return[a,e.useMemo(()=>({toggle:o,set:r,setLeft:c,setRight:b}),[o,r,c,b])]};
+//# sourceMappingURL=index.js.map

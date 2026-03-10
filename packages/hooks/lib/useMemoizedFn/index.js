@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var e=require("react"),r=require("../utils/index.js");exports.default=function(t){r.isDev&&(r.isFunction(t)||console.error("useMemoizedFn expected parameter is a function, got "+typeof t));const u=e.useRef(t);u.current=e.useMemo(()=>t,[t]);const n=e.useRef(null);return n.current||(n.current=function(...e){return u.current.apply(this,e)}),n.current};
+//# sourceMappingURL=index.js.map

@@ -68,7 +68,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/index.md",
-          "updatedTime": 1772879550078,
+          "updatedTime": 1773037255000,
           "title": "首页",
           "hero": {
             "image": "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=YaYaHooks&backgroundColor=030307",
@@ -139,7 +139,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "docs/guide/index.md",
-          "updatedTime": 1772877779149,
+          "updatedTime": 1773037255000,
           "title": "指南",
           "hero": {
             "image": "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=YaYaHooks&backgroundColor=030307",
@@ -329,12 +329,45 @@ export function getRoutes() {
         "title": "搜索功能设计方案 - YaYa React Hooks"
       },
       {
+        "path": "/hooks/use-local-storage-state",
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'packages__hooks__src__useLocalStorageState__index.md' */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useLocalStorageState/index.md')}),
+        "exact": true,
+        "meta": {
+          "filePath": "packages/hooks/src/useLocalStorageState/index.md",
+          "updatedTime": 1773068380727,
+          "componentName": "useLocalStorageState",
+          "nav": {
+            "path": "/hooks",
+            "title": "UseLocalStorageState"
+          },
+          "slugs": [
+            {
+              "depth": 1,
+              "value": "useLocalStorageState",
+              "heading": "uselocalstoragestate"
+            },
+            {
+              "depth": 2,
+              "value": "示例",
+              "heading": "示例"
+            }
+          ],
+          "title": "useLocalStorageState",
+          "hasPreviewer": true,
+          "group": {
+            "path": "/hooks/use-local-storage-state",
+            "title": "UseLocalStorageState"
+          }
+        },
+        "title": "useLocalStorageState - YaYa React Hooks"
+      },
+      {
         "path": "/hooks/use-memoized-fn",
         "component": dynamic({ loader: () => import(/* webpackChunkName: 'packages__hooks__src__useMemoizedFn__index.md' */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useMemoizedFn/index.md')}),
         "exact": true,
         "meta": {
           "filePath": "packages/hooks/src/useMemoizedFn/index.md",
-          "updatedTime": 1773035557902,
+          "updatedTime": 1773037255000,
           "componentName": "useMemoizedFn",
           "nav": {
             "path": "/hooks",
@@ -367,7 +400,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "packages/hooks/src/useToggle/index.md",
-          "updatedTime": 1772950180804,
+          "updatedTime": 1773037255000,
           "nav": {
             "path": "/hooks",
             "title": "UseToggle"
@@ -479,7 +512,7 @@ export function getRoutes() {
         "exact": true,
         "meta": {
           "filePath": "packages/hooks/src/useUpdateEffect/index.md",
-          "updatedTime": 1772956692831,
+          "updatedTime": 1773037255000,
           "componentName": "useUpdateEffect",
           "nav": {
             "path": "/hooks",

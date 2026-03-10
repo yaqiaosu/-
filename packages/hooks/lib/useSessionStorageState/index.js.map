@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../../src/useSessionStorageState/index.ts"],"sourcesContent":[null],"names":["key","options","getStorage","storage","sessionStorage","createUseStorageState","useStorageState"],"mappings":"uIAOA,SAA4CA,EAAaC,GACvD,MAAMC,GAAaD,aAAO,EAAPA,EAASE,UAAO,KAAWC,gBAE9C,OADwBC,EAAAA,sBAAsBH,EACvCI,CAAgBN,EAAKC,EAC9B"}

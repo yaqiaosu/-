@@ -28,12 +28,8 @@ export default defineConfig({
   ],
   // 确保使用正确的 Babel 配置
   babel: {
-    plugins: [
-      // 确保使用正确的 React 插件
-      ['@babel/plugin-transform-react-jsx', {
-        runtime: 'classic',
-        importSource: 'react'
-      }],
+    presets: [
+      ['@babel/preset-react', { runtime: 'automatic' }],
     ],
   },
 });

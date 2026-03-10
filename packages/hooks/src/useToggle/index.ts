@@ -16,11 +16,11 @@ function useToggle<T = boolean, U = T>(defaultValue: T = false as T, reverseValu
     if (reverseValue !== undefined) {
       return reverseValue;
     }
-    // 如果 reverseValue 没传，当 defaultValue 是 boolean 时取反，否则取 defaultValue
+    // 如果 reverseValue 没传，当 defaultValue 是 boolean 时取反，否则取 false
     if (typeof defaultValue === 'boolean') {
       return !defaultValue as T | U;
     }
-    return defaultValue as T | U;
+    return false as T | U;
   }, [defaultValue, reverseValue]);
 
   const toggle = useCallback(() => {

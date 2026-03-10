@@ -1,16 +1,19 @@
 // @ts-nocheck
 import React from 'react';
 import { dynamic } from 'dumi';
-import rawCode1 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useMemoizedFn/demo/demo.tsx?dumi-raw-code';
-import rawCode2 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo1.tsx?dumi-raw-code';
-import rawCode3 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo2.tsx?dumi-raw-code';
-import rawCode4 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo3.tsx?dumi-raw-code';
-import rawCode5 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo4.tsx?dumi-raw-code';
-import rawCode6 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo5.tsx?dumi-raw-code';
-import rawCode7 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo6.tsx?dumi-raw-code';
-import rawCode8 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo7.tsx?dumi-raw-code';
-import rawCode9 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useUpdateEffect/demo/demo.tsx?dumi-raw-code';
-import rawCode10 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useMemoizedFn/demo/demo2.tsx?dumi-raw-code';
+import rawCode1 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useLocalStorageState/demo/demo.tsx?dumi-raw-code';
+import rawCode2 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useMemoizedFn/demo/demo.tsx?dumi-raw-code';
+import rawCode3 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useMemoizedFn/demo/demo2.tsx?dumi-raw-code';
+import rawCode4 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo1.tsx?dumi-raw-code';
+import rawCode5 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo2.tsx?dumi-raw-code';
+import rawCode6 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo3.tsx?dumi-raw-code';
+import rawCode7 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo4.tsx?dumi-raw-code';
+import rawCode8 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo5.tsx?dumi-raw-code';
+import rawCode9 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo6.tsx?dumi-raw-code';
+import rawCode10 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo7.tsx?dumi-raw-code';
+import rawCode11 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useUpdateEffect/demo/demo.tsx?dumi-raw-code';
+import rawCode12 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useLocalStorageState/demo/demo2.tsx?dumi-raw-code';
+import rawCode13 from '!!dumi-raw-code-loader!/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useLocalStorageState/demo/demo3.tsx?dumi-raw-code';
 
 export default {
   'docs-demo': {
@@ -329,74 +332,95 @@ export default {
 }),
     previewerProps: {"sources":{"_":{"tsx":"function ClientOnlyComponent() {\n  const [isMounted, setIsMounted] = useState(false);\n\n  useEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  if (!isMounted) return null;\n\n  return <MyComponent />;\n}"}},"dependencies":{},"identifier":"guide-demo-9"},
   },
+  'uselocalstoragestate-demo': {
+    component: dynamic({
+      loader: async () => (await import(/* webpackChunkName: "demos_etatSegarotSlacoLesu" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useLocalStorageState/demo/demo.tsx')).default,
+      loading: () => null,
+    }),
+    previewerProps: {"sources":{"_":{"tsx":rawCode1}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"componentName":"useLocalStorageState","identifier":"uselocalstoragestate-demo"},
+  },
   'usememoizedfn-demo': {
     component: dynamic({
       loader: async () => (await import(/* webpackChunkName: "demos_nFdeziomeMesu" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useMemoizedFn/demo/demo.tsx')).default,
       loading: () => null,
     }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode1}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"componentName":"useMemoizedFn","identifier":"usememoizedfn-demo"},
-  },
-  'usetoggle-demo1': {
-    component: dynamic({
-      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo1.tsx')).default,
-      loading: () => null,
-    }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode2}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"identifier":"usetoggle-demo1"},
-  },
-  'usetoggle-demo2': {
-    component: dynamic({
-      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo2.tsx')).default,
-      loading: () => null,
-    }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode3}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"identifier":"usetoggle-demo2"},
-  },
-  'usetoggle-demo3': {
-    component: dynamic({
-      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo3.tsx')).default,
-      loading: () => null,
-    }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode4}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"identifier":"usetoggle-demo3"},
-  },
-  'usetoggle-demo4': {
-    component: dynamic({
-      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo4.tsx')).default,
-      loading: () => null,
-    }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode5}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"identifier":"usetoggle-demo4"},
-  },
-  'usetoggle-demo5': {
-    component: dynamic({
-      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo5.tsx')).default,
-      loading: () => null,
-    }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode6}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"identifier":"usetoggle-demo5"},
-  },
-  'usetoggle-demo6': {
-    component: dynamic({
-      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo6.tsx')).default,
-      loading: () => null,
-    }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode7}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"identifier":"usetoggle-demo6"},
-  },
-  'usetoggle-demo7': {
-    component: dynamic({
-      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo7.tsx')).default,
-      loading: () => null,
-    }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode8}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"identifier":"usetoggle-demo7"},
-  },
-  'useupdateeffect-demo': {
-    component: dynamic({
-      loader: async () => (await import(/* webpackChunkName: "demos_tceffEetadpUesu" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useUpdateEffect/demo/demo.tsx')).default,
-      loading: () => null,
-    }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode9}},"dependencies":{"yaya-hooks":{"version":"1.0.0"},"react":{"version":"19.2.4"}},"componentName":"useUpdateEffect","identifier":"useupdateeffect-demo"},
+    previewerProps: {"sources":{"_":{"tsx":rawCode2}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"componentName":"useMemoizedFn","identifier":"usememoizedfn-demo"},
   },
   'usememoizedfn-demo2': {
     component: dynamic({
       loader: async () => (await import(/* webpackChunkName: "demos_nFdeziomeMesu" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useMemoizedFn/demo/demo2.tsx')).default,
       loading: () => null,
     }),
-    previewerProps: {"sources":{"_":{"tsx":rawCode10}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"componentName":"useMemoizedFn","identifier":"usememoizedfn-demo2"},
+    previewerProps: {"sources":{"_":{"tsx":rawCode3}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"componentName":"useMemoizedFn","identifier":"usememoizedfn-demo2"},
+  },
+  'usetoggle-demo1': {
+    component: dynamic({
+      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo1.tsx')).default,
+      loading: () => null,
+    }),
+    previewerProps: {"sources":{"_":{"tsx":rawCode4}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"identifier":"usetoggle-demo1"},
+  },
+  'usetoggle-demo2': {
+    component: dynamic({
+      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo2.tsx')).default,
+      loading: () => null,
+    }),
+    previewerProps: {"sources":{"_":{"tsx":rawCode5}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"identifier":"usetoggle-demo2"},
+  },
+  'usetoggle-demo3': {
+    component: dynamic({
+      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo3.tsx')).default,
+      loading: () => null,
+    }),
+    previewerProps: {"sources":{"_":{"tsx":rawCode6}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"identifier":"usetoggle-demo3"},
+  },
+  'usetoggle-demo4': {
+    component: dynamic({
+      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo4.tsx')).default,
+      loading: () => null,
+    }),
+    previewerProps: {"sources":{"_":{"tsx":rawCode7}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"identifier":"usetoggle-demo4"},
+  },
+  'usetoggle-demo5': {
+    component: dynamic({
+      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo5.tsx')).default,
+      loading: () => null,
+    }),
+    previewerProps: {"sources":{"_":{"tsx":rawCode8}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"identifier":"usetoggle-demo5"},
+  },
+  'usetoggle-demo6': {
+    component: dynamic({
+      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo6.tsx')).default,
+      loading: () => null,
+    }),
+    previewerProps: {"sources":{"_":{"tsx":rawCode9}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"identifier":"usetoggle-demo6"},
+  },
+  'usetoggle-demo7': {
+    component: dynamic({
+      loader: async () => (await import(/* webpackChunkName: "demos_no_comp" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useToggle/demo/demo7.tsx')).default,
+      loading: () => null,
+    }),
+    previewerProps: {"sources":{"_":{"tsx":rawCode10}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"identifier":"usetoggle-demo7"},
+  },
+  'useupdateeffect-demo': {
+    component: dynamic({
+      loader: async () => (await import(/* webpackChunkName: "demos_tceffEetadpUesu" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useUpdateEffect/demo/demo.tsx')).default,
+      loading: () => null,
+    }),
+    previewerProps: {"sources":{"_":{"tsx":rawCode11}},"dependencies":{"yaya-hooks":{"version":"1.0.0"},"react":{"version":"19.2.4"}},"componentName":"useUpdateEffect","identifier":"useupdateeffect-demo"},
+  },
+  'uselocalstoragestate-demo2': {
+    component: dynamic({
+      loader: async () => (await import(/* webpackChunkName: "demos_etatSegarotSlacoLesu" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useLocalStorageState/demo/demo2.tsx')).default,
+      loading: () => null,
+    }),
+    previewerProps: {"sources":{"_":{"tsx":rawCode12}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"componentName":"useLocalStorageState","identifier":"uselocalstoragestate-demo2"},
+  },
+  'uselocalstoragestate-demo3': {
+    component: dynamic({
+      loader: async () => (await import(/* webpackChunkName: "demos_etatSegarotSlacoLesu" */'/Users/yaqiaosu/Desktop/💻Code/前端工程化/00.内容平台/packages/hooks/src/useLocalStorageState/demo/demo3.tsx')).default,
+      loading: () => null,
+    }),
+    previewerProps: {"sources":{"_":{"tsx":rawCode13}},"dependencies":{"react":{"version":"19.2.4"},"yaya-hooks":{"version":"1.0.0"}},"componentName":"useLocalStorageState","identifier":"uselocalstoragestate-demo3"},
   },
 };
